@@ -11,7 +11,7 @@
 		71E8039E2A5A52A70089461A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8039D2A5A52A70089461A /* ContentView.swift */; };
 		71E803A02A5A52AA0089461A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71E8039F2A5A52AA0089461A /* Assets.xcassets */; };
 		71E803A32A5A52AA0089461A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71E803A22A5A52AA0089461A /* Preview Assets.xcassets */; };
-		71E803AC2A5A62740089461A /* BetterRest 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 71E803AB2A5A62740089461A /* BetterRest 1.mlmodel */; };
+		71E803B02A5A631C0089461A /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 71E803AF2A5A631B0089461A /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +20,7 @@
 		71E8039D2A5A52A70089461A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		71E8039F2A5A52AA0089461A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71E803A22A5A52AA0089461A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		71E803AB2A5A62740089461A /* BetterRest 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "BetterRest 1.mlmodel"; sourceTree = "<group>"; };
+		71E803AF2A5A631B0089461A /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				71E8039B2A5A52A70089461A /* BetterRestApp.swift */,
-				71E803AB2A5A62740089461A /* BetterRest 1.mlmodel */,
+				71E803AF2A5A631B0089461A /* SleepCalculator.mlmodel */,
 				71E8039D2A5A52A70089461A /* ContentView.swift */,
 				71E8039F2A5A52AA0089461A /* Assets.xcassets */,
 				71E803A12A5A52AA0089461A /* Preview Content */,
@@ -140,8 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71E803AC2A5A62740089461A /* BetterRest 1.mlmodel in Sources */,
 				71E8039E2A5A52A70089461A /* ContentView.swift in Sources */,
+				71E803B02A5A631C0089461A /* SleepCalculator.mlmodel in Sources */,
 				71E8039C2A5A52A70089461A /* BetterRestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
