@@ -12,7 +12,7 @@ struct ContentView: View {
     
     @State private var sleepAmount = 8.0
     @State private var wakeUp = defaultWakeTime
-    @State private var coffeeAmount = 1.0
+    @State private var coffeeAmount = 0
     
     @State private var alertTitle = ""
     @State private var alertMessage = ""
@@ -40,6 +40,7 @@ struct ContentView: View {
             
             let sleepTime = wakeUp - prediction.actualSleep
             
+            
             alertTitle = "Your ideal bedtime is..."
             alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
             
@@ -52,34 +53,48 @@ struct ContentView: View {
         
     }
     
+    struct Title: ViewModifier {
+        func body(content: Content) -> some View {
+            content
+                .font(.title2)
+                .foregroundColor(.black)
+        }
+    }
+
+    
     
     var body: some View {
         NavigationView {
             Form {
                 
-                
-                VStack(alignment: .leading, spacing: 10) {
+                Section {
                     Text("When do you want to wake up?")
-                        .font(.headline)
+                        .modifier(Title())
                     DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                 }
-    
                 
-                VStack(alignment: .leading, spacing: 10) {
+                
+                Section {
                     Text("Desired amount of sleep")
-                        .font(.headline)
+                        .modifier(Title())
                     Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
                 }
                 
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Daily coffee intake")
-                        .font(.headline)
-                    Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 1...20)
+                Section {
+                    VStack {
+                        Text("Daily coffee intake")
+                            .modifier(Title())
+                        Picker("Coffee Amount", selection: $coffeeAmount) {
+                            ForEach(0..<21) { amount in
+                                Text("\(amount)")
+                            }
+                        }
+                    }
                 }
                 
+                
             }
-            
             .navigationTitle("BetterRest")
             .toolbar {
                 Button("Calculate", action: calculateBedtime)
