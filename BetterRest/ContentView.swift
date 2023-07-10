@@ -85,7 +85,7 @@ struct ContentView: View {
                     VStack {
                         Text("Daily coffee intake")
                             .modifier(Title())
-                        Picker("Coffee Amount", selection: $coffeeAmount) {
+                        Picker("Cups", selection: $coffeeAmount) {
                             ForEach(0..<21) { amount in
                                 Text("\(amount)")
                             }
