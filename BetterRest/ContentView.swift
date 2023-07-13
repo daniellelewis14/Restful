@@ -65,45 +65,52 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            Form {
                 
-                Section {
-                    Text("When do you want to wake up?")
-                        .modifier(Title())
-                    DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
-                        .labelsHidden()
-                }
-                
-                
-                Section {
-                    Text("Desired amount of sleep")
-                        .modifier(Title())
-                    Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
-                }
-                
-                Section {
+            VStack(spacing: 30) {
+                    Image("img")
+                        .resizable()
+                        .scaledToFit()
                     VStack {
-                        Text("Daily coffee intake")
+                        Text("When do you want to wake up?")
                             .modifier(Title())
-                        Picker("Cups", selection: $coffeeAmount) {
-                            ForEach(0..<21) { amount in
-                                Text("\(amount)")
-                            }
+                        DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                            .labelsHidden()
+                    }
+                    
+                    Section {
+                        VStack {
+                            Text("Desired amount of sleep")
+                                .modifier(Title())
+                            Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
+                                .fixedSize()
+                        }
+                    }
+                    
+                    
+                    Section {
+                        VStack {
+                            Text("Daily coffee intake")
+                                .modifier(Title())
+                            Stepper("Cups", value: $coffeeAmount, in: 1...10)
+                                .fixedSize()
+                        
                         }
                     }
                 }
-                
-                
-            }
-            .navigationTitle("BetterRest")
-            .toolbar {
-                Button("Calculate", action: calculateBedtime)
-            }
-            .alert(alertTitle, isPresented: $showingAlert) {
-                Button("OK") { }
-            } message: {
-                Text(alertMessage)
-            }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(LinearGradient(colors: [.blue, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .navigationTitle("BetterRest")
+                .toolbar {
+                    Button("Calculate", action: calculateBedtime)
+                        .foregroundColor(.white)
+                }
+                .alert(alertTitle, isPresented: $showingAlert) {
+                    Button("OK") { }
+                } message: {
+                    Text(alertMessage)
+                }
+            
+            
         }
     }
 }
