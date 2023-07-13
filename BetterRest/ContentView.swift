@@ -91,7 +91,7 @@ struct ContentView: View {
                         VStack {
                             Text("Daily coffee intake")
                                 .modifier(Title())
-                            Stepper("Cups", value: $coffeeAmount, in: 1...10)
+                            Stepper("Cups: \(coffeeAmount) ", value: $coffeeAmount, in: 0...10)
                                 .fixedSize()
                         
                         }
